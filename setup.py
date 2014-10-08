@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="ndict",
     version=__import__("ndict").__version__,
-    description="Named dict for python based on common dict",
-    long_description="Named dict for python based on common dict",
+    description="A Python module that allows access to dict keys as object methods",
+    long_description="A Python module that allows access to dict keys as object methods",
     author="Dmitry Kurbatov",
     author_email="dk@dimcha.ru",
     license="BSD",
