@@ -3,7 +3,7 @@
 %define _project ndict
 
 Name:    python-%{_project}
-Version: 0.1
+Version: 0.2
 Release: 1%{?dist}
 Summary: A Python module that allows access to dict keys as object methods
 

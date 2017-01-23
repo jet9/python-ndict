@@ -1,4 +1,7 @@
-__version__ = "0.1"
+from __future__ import print_function
+
+__version__ = "0.2"
+
 
 class NDict(dict):
     """
@@ -48,8 +51,8 @@ class NDict(dict):
 
         try:
             return self[key]
-        except KeyError, k:
-            raise AttributeError, k
+        except KeyError as k:
+            raise AttributeError(k)
 
     def __setattr__(self, key, value):
         """Set dict key as method"""
@@ -59,15 +62,16 @@ class NDict(dict):
     def __delattr__(self, key):
         try:
             del self[key]
-        except KeyError, k:
-            raise AttributeError, k
+        except KeyError as k:
+            raise AttributeError(k)
 
     def dict(self):
         """
         Return ndict instance as dict:
 
+        >>> d = NDict({ 'a': 1, 'b': { 'c': 'foo', 'd': True, 'e': [1,2,3,{ 'f': 'good'}] }})
         >>> d.dict()
-        {'a': 1, 'b': {'c': 'foo', 'e': [1, 2, 3, {'f': 'good'}], 'd': True}}
+        { 'a': 1, 'b': { 'c': 'foo', 'd': True, 'e': [1,2,3,{ 'f': 'good'}] }}
         >>> d = d.dict()
         >>> d.a
         Traceback (most recent call last):
@@ -93,8 +97,8 @@ if __name__ == "__main__":
     # simple example
     d = {'a': 1, 'b': {'c': 'foo', 'd': True, 'e': [1, 2, 3, {'f': 'good'}]}}
     d = NDict(d)
-    print d.a
-    print d.b.c
-    print d.b.e[2]
-    print d.b.e[3]
-    print d.b.e[3].f
+    print(d.a)
+    print(d.b.c)
+    print(d.b.e[2])
+    print(d.b.e[3])
+    print(d.b.e[3].f)
